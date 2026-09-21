@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="yiyuan - 意源健康医疗服务平台，提供专业医疗资讯、在线问诊指南及就医流程优化方案，帮助用户获取权威健康信息，连接优质医疗资源。">
+    <meta name="keywords" content="yiyuan,医疗资讯,在线问诊,健康指南,就医服务">
+    <title>yiyuan - 专业医疗资讯与在线问诊服务平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #007aff;
+            --primary-dark: #005bb5;
+            --secondary-color: #f5f7fa;
+            --text-main: #1d1d1f;
+            --text-secondary: #86868b;
+            --bg-body: #ffffff;
+            --bg-card: #ffffff;
+            --border-color: #d2d2d7;
+            --spacing-unit: 8px;
+            --container-width: 1200px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-text {
+            background: transparent;
+            color: var(--text-main);
+        }
+
+        .btn-text:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.25);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0 80px;
+            background: linear-gradient(180deg, var(--secondary-color) 0%, #ffffff 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .stat-item h3 {
+            font-size: 28px;
+            color: var(--text-main);
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .feature-tag {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: white;
+            padding: 12px 24px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-tag .icon {
+            width: 32px;
+            height: 32px;
+            background: #e6f0ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 18px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            padding: 40px 32px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: transparent;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary-color);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--primary-color);
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        /* Info Section */
+        .info-section {
+            padding: 80px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .info-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .info-content h2 {
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .info-item .bullet {
+            min-width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+
+        .info-item h4 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .info-item p {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .info-visual {
+            position: relative;
+        }
+
+        .info-visual img {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Guide Section */
+        .guide {
+            padding: 80px 0;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .guide-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+            height: 240px;
+            group: cursor;
+        }
+
+        .guide-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .guide-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .guide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 24px;
+            color: white;
+        }
+
+        .guide-overlay h3 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .guide-overlay span {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 24px 0;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--primary-color);
+            transition: transform 0.2s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            margin-top: 16px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f9f9f9;
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            margin-top: 16px;
+            font-size: 14px;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .info-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            nav ul {
+                gap: 16px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary-color);">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+                <span>yiyuan</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#services">服务</a></li>
+                    <li><a href="#guide">就医指南</a></li>
+                    <li><a href="#info">健康资讯</a></li>
+                    <li><a href="#faq">帮助中心</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-text">登录</a>
+                <a href="#" class="btn btn-primary">立即咨询</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1>连接权威医疗资源<br>让健康管理更简单</h1>
+                    <p>yiyuan 是您身边的专业医疗服务平台，提供实时健康资讯、在线问诊及就医流程优化方案，助您轻松获取专业健康建议。</p>
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: flex-start;">
+                        <a href="#guide" class="btn btn-primary">查看就医指南</a>
+                        <a href="#services" class="btn btn-text" style="border: 1px solid var(--border-color);">了解服务</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3>500+</h3>
+                            <p>合作医院</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>1000+</h3>
+                            <p>专业医生</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>50w+</h3>
+                            <p>服务用户</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://picsum.photos/seed/medical_hero/600/450" alt="专业医疗团队服务场景">
+                    <div class="feature-tag">
+                        <div class="icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <span>7x24小时在线响应</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>全方位医疗健康服务</h2>
+                    <p>基于大数据与人工智能，为您提供精准的健康解决方案</p>
+                </div>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                        </div>
+                        <h3>在线问诊咨询</h3>
+                        <p>连接三甲医院资深医生，通过图文、电话或视频快速获取专业诊断建议，节省挂号排队时间。</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <h3>医疗报告解读</h3>
+                        <p>上传您的体检报告或化验单，由AI辅助分析结合人工复核，为您提供清晰易懂的解读报告。</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <h3>就医流程优化</h3>
+                        <p>提供分时段预约挂号、就诊路线规划及陪诊服务，帮助患者高效完成就诊全流程。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section id="info" class="info-section">
+            <div class="container info-layout">
+                <div class="info-content">
+                    <h2>为什么选择 yiyuan？</h2>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="bullet"></div>
+                            <div>
+                                <h4>数据隐私安全</h4>
+                                <p>采用银行级加密技术，严格保护您的个人健康隐私数据，确保信息安全无忧。</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="bullet"></div>
+                            <div>
+                                <h4>专家资源丰富</h4>
+                                <p>汇聚全国各大三甲医院权威专家，涵盖内科、外科、儿科等全科室领域。</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="bullet"></div>
+                            <div>
+                                <h4>智能辅助诊断</h4>
+                                <p>基于最新医学知识库，提供初步症状自查与疾病风险预警，辅助科学就医。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-visual">
+                    <img src="https://picsum.photos/seed/tech_medical/600/400" alt="医疗科技与数据分析">
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="guide">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见就医场景指南</h2>
+                    <p>针对不同健康需求，提供实用的应对策略与步骤</p>
+                </div>
+                <div class="guide-grid">
+                    <a href="#" class="guide-card">
+                        <img src="https://picsum.photos/seed/flu/400/300" alt="感冒发烧应对">
+                        <div class="guide-overlay">
+                            <h3>普通感冒发烧</h3>
+                            <span>家庭护理与用药指南</span>
+                        </div>
+                    </a>
+                    <a href="#" class="guide-card">
+                        <img src="https://picsum.photos/seed/checkup/400/300" alt="年度体检">
+                        <div class="guide-overlay">
+                            <h3>年度体检攻略</h3>
+                            <span>必查项目与注意事项</span>
+                        </div>
+                    </a>
+                    <a href="#" class="guide-card">
+                        <img src="https://picsum.photos/seed/elderly/400/300" alt="老年健康">
+                        <div class="guide-overlay">
+                            <h3>老年健康管理</h3>
+                            <span>慢性病监测与日常保健</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item active">
+                        <div class="faq-question">在线问诊的响应时间一般是多久？</div>
+                        <div class="faq-answer">
+                            我们承诺在医生在线的情况下，平均响应时间为15分钟以内。高峰时段可能会有稍许延迟，我们会尽量加快处理速度。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">上传的报告单会被泄露吗？</div>
+                        <div class="faq-answer">
+                            不会。yiyuan 严格遵循医疗数据隐私保护法规，所有上传的影像和文本数据仅用于本次咨询分析，并在咨询结束后自动加密归档，不会向第三方泄露。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何进行分时段预约挂号？</div>
+                        <div class="faq-answer">
+                            您可以在首页选择“预约挂号”功能，输入您的症状关键词或直接搜索医院名称，系统将显示当日的号源情况，您可以选择合适的时间段进行预约。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如果线上诊断结果严重，该怎么办？</div>
+                        <div class="faq-answer">
+                            线上问诊仅供参考，不能替代线下面诊。如果医生建议您线下就诊，我们将协助您查询相关医院的专家号源，并提供就诊前的注意事项。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span>yiyuan</span>
+                    </a>
+                    <p>致力于打造最值得信赖的数字医疗服务平台，用科技守护您的健康。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">平台介绍</a></li>
+                        <li><a href="#">合作医院</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">媒体报道</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">用户协议</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li><a href="#">400-123-4567</a></li>
+                        <li><a href="#">support@yiyuan.com</a></li>
+                        <li><a href="#">北京市朝阳区科技园A座</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 yiyuan 医疗服务平台 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                const isActive = parent.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(child => {
+                    child.classList.remove('active');
+                });
+
+                // Open clicked item if it wasn't already open
+                if (!isActive) {
+                    parent.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
