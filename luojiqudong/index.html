@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="罗技驱动下载官方中心，提供G系列鼠标、无线键盘、游戏耳机等最新驱动程序及软件下载，包含Logitech Options、G Hub及安装使用指南。">
+    <meta name="keywords" content="罗技驱动下载,罗技驱动,G系列驱动,罗技G Hub,罗技鼠标驱动">
+    <title>罗技驱动下载-官方驱动程序与软件资源中心</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00b06f;
+            --primary-hover: #00935a;
+            --bg-color: #f5f7fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --border-color: #e1e4e8;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f0f2f5;
+            border-radius: 4px;
+            padding: 6px 12px;
+            width: 240px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 100%;
+            margin-left: 8px;
+            font-size: 14px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #00b06f 0%, #008f5b 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 12px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Product Categories */
+        .section-title {
+            font-size: 24px;
+            margin: 48px 0 24px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .category-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .category-name {
+            font-weight: 600;
+        }
+
+        /* Software Table */
+        .software-section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            padding: 24px;
+            margin-bottom: 40px;
+        }
+
+        .software-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .software-table th, .software-table td {
+            text-align: left;
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .software-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: var(--text-sub);
+        }
+
+        .software-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-badge.new {
+            background-color: #e6f7ff;
+            color: #1890ff;
+        }
+
+        .btn-download {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-download:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin-bottom: 60px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-sub);
+            display: none;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 16px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 48px 0 24px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            font-size: 13px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 12px 0;
+                gap: 12px;
+            }
+            
+            nav ul {
+                gap: 16px;
+                font-size: 13px;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .software-table th, .software-table td {
+                padding: 12px 8px;
+                font-size: 13px;
+            }
+            
+            .hide-mobile {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#00b06f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="#00b06f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="#00b06f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                LogiDriver<span>下载</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">驱动下载</a></li>
+                    <li><a href="#">游戏中心</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">支持服务</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" placeholder="搜索型号或软件...">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>为您的设备注入最佳性能</h1>
+                <p>获取最新的罗技驱动程序和软件，解锁自定义按键、RGB灯效调节及游戏性能优化功能。</p>
+                <a href="#software-list" class="hero-btn">开始下载</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Category Section -->
+            <h2 class="section-title">热门产品分类</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <span class="category-icon">🖱️</span>
+                    <div class="category-name">G系列鼠标</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">⌨️</span>
+                    <div class="category-name">无线键盘</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎧</span>
+                    <div class="category-name">游戏耳机</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎮</span>
+                    <div class="category-name">游戏手柄</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">💻</span>
+                    <div class="category-name">鼠标垫与配件</div>
+                </div>
+            </div>
+
+            <!-- Software List -->
+            <h2 class="section-title">推荐软件下载</h2>
+            <div class="software-section">
+                <table class="software-table">
+                    <thead>
+                        <tr>
+                            <th>软件名称</th>
+                            <th>适用设备</th>
+                            <th>版本</th>
+                            <th>发布日期</th>
+                            <th class="hide-mobile">大小</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="software-list">
+                        <tr>
+                            <td><strong>Logitech G Hub</strong></td>
+                            <td>G系列鼠标、键盘、耳机</td>
+                            <td>2023.12.01</td>
+                            <td><span class="status-badge new">最新</span></td>
+                            <td class="hide-mobile">~145 MB</td>
+                            <td><a href="#" class="btn-download">下载</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Logitech Options+</strong></td>
+                            <td>M系列鼠标、MX系列键盘</td>
+                            <td>2023.10.15</td>
+                            <td>2023.10.15</td>
+                            <td class="hide-mobile">~85 MB</td>
+                            <td><a href="#" class="btn-download">下载</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>罗技游戏软件 (LGS)</strong></td>
+                            <td>较老款G系列设备</td>
+                            <td>2022.01.20</td>
+                            <td>2022.01.20</td>
+                            <td class="hide-mobile">~120 MB</td>
+                            <td><a href="#" class="btn-download">下载</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Logitech Options</strong></td>
+                            <td>M系列鼠标、MX系列键盘</td>
+                            <td>2021.11.10</td>
+                            <td>2021.11.10</td>
+                            <td class="hide-mobile">~78 MB</td>
+                            <td><a href="#" class="btn-download">下载</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- FAQ Section -->
+            <h2 class="section-title">常见问题解答</h2>
+            <div class="faq-section">
+                <div class="faq-item">
+                    <div class="faq-question">安装驱动后无法识别设备怎么办？</div>
+                    <div class="faq-answer">请尝试重新插拔USB连接线，或者在设备管理器中卸载旧驱动后重启电脑。确保您的电脑系统为Windows 10或11（64位）。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">G Hub和LGS（旧版软件）可以同时安装吗？</div>
+                    <div class="faq-answer">不建议同时安装。安装G Hub会自动覆盖旧版LGS的配置文件，建议使用G Hub以获得更好的功能和兼容性。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">下载的驱动是官方原版吗？</div>
+                    <div class="faq-answer">本站提供的所有驱动均来自罗技官方支持服务器，经过安全扫描，确保纯净无毒。</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">网站介绍</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>设备支持</h4>
+                    <ul>
+                        <li><a href="#">鼠标支持</a></li>
+                        <li><a href="#">键盘支持</a></li>
+                        <li><a href="#">耳机支持</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>技术支持</h4>
+                    <ul>
+                        <li><a href="#">故障排除</a></li>
+                        <li><a href="#">社区论坛</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">微博</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LogiDriver Download Center. 本站为非官方网站，所有软件版权归原作者所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的FAQ折叠交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
