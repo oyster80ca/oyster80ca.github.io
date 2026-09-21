@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="索马里炸弹袭击事件专题页面，提供索马里安全局势分析、反恐措施解读、历史重大袭击事件回顾及当地安全出行指南。">
+    <meta name="keywords" content="索马里炸弹袭击, 索马里安全, 反恐, 非洲局势, 索马里冲突">
+    <title>索马里炸弹袭击-全球反恐安全形势与区域冲突深度解析</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-body: #f4f4f7;
+            --bg-card: #ffffff;
+            --text-main: #1a1a1a;
+            --text-secondary: #5f6368;
+            --accent-red: #d32f2f;
+            --accent-blue: #1976d2;
+            --border-color: #e0e0e0;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-blue);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        nav a.active, nav a:hover {
+            color: var(--accent-red);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Alert Banner */
+        .alert-banner {
+            background-color: #ffebee;
+            border-left: 4px solid var(--accent-red);
+            padding: 12px;
+            margin: 24px auto;
+            max-width: var(--container-width);
+            border-radius: 4px;
+            color: #b71c1c;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* Content Grid */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+            margin-top: 32px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -13px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-red);
+            border-radius: 2px;
+        }
+
+        /* Article Cards */
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .article-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.2s;
+        }
+
+        .article-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .card-tag {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .card-tag.crisis { background: #ffebee; color: #b71c1c; }
+        .card-tag.analysis { background: #e3f2fd; color: #1565c0; }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .card-excerpt {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .read-more {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more::after {
+            content: '→';
+            margin-left: 4px;
+            transition: transform 0.2s;
+        }
+
+        .read-more:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .sidebar-widget {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 12px;
+            background: #f9f9f9;
+            border-radius: 6px;
+        }
+
+        .stat-num {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-red);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Safety Guide */
+        .guide-list li {
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .guide-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #263238;
+            color: #eceff1;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col a {
+            color: #b0bec5;
+            font-size: 0.9rem;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid #37474f;
+            font-size: 0.85rem;
+            color: #78909c;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 12px 0;
+                gap: 12px;
+            }
+            
+            nav ul {
+                gap: 16px;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <span>⚠️</span> 全球安全观察
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">索马里安全</a></li>
+                <li><a href="#">区域冲突</a></li>
+                <li><a href="#">反恐策略</a></li>
+                <li><a href="#">出行指南</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="container">
+        <h1>索马里炸弹袭击与反恐安全</h1>
+        <p>深入解析索马里当前的安全局势、极端组织威胁背景及针对平民的袭击模式。</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="alert-banner">
+        <strong>安全提示：</strong> 根据最新情报，索马里部分地区（如摩加迪沙及周边）安全风险极高，非必要请勿前往。
+    </div>
+
+    <div class="main-layout">
+        <!-- Main Content Area -->
+        <main>
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">安全形势深度解析</h2>
+                </div>
+                <div class="article-list">
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/somalia1/800/400" alt="摩加迪沙街头安全检查" class="card-img">
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="card-tag crisis">安全预警</span>
+                                <span>2023年10月更新</span>
+                            </div>
+                            <h3 class="card-title"><a href="#">索马里首都安全局势恶化：针对平民的袭击模式分析</a></h3>
+                            <p class="card-excerpt">近期摩加迪沙频繁发生针对市场、酒店及交通枢纽的汽车炸弹袭击。分析指出，袭击者利用混杂人群进行作案，且采用了更为复杂的远程引爆装置。</p>
+                            <a href="#" class="read-more">阅读详情</a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/somalia2/800/400" alt="军事反恐行动" class="card-img">
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="card-tag analysis">反恐策略</span>
+                                <span>2023年09月</span>
+                            </div>
+                            <h3 class="card-title"><a href="#">“青年党”威胁评估：索马里反恐行动面临的挑战</a></h3>
+                            <p class="card-excerpt">索马里青年党是造成地区不稳定的主要源头。尽管国际联军提供支持，但当地政府军在控制力和情报共享方面仍面临严峻考验。</p>
+                            <a href="#" class="read-more">阅读详情</a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/somalia3/800/400" alt="国际援助物资" class="card-img">
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="card-tag analysis">人道主义</span>
+                                <span>2023年08月</span>
+                            </div>
+                            <h3 class="card-title"><a href="#">袭击对索马里人道主义援助的影响</a></h3>
+                            <p class="card-excerpt">频繁的炸弹袭击导致人道主义车队无法安全抵达灾区，加剧了当地的饥荒与卫生危机，形成恶性循环。</p>
+                            <a href="#" class="read-more">阅读详情</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <!-- Sidebar -->
+        <aside>
+            <div class="sidebar-widget">
+                <h3 class="widget-title">安全统计概览</h3>
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <span class="stat-num">High</span>
+                        <span class="stat-label">当前风险等级</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">High</span>
+                        <span class="stat-label">恐怖主义威胁</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">2023</span>
+                        <span class="stat-label">主要活跃组织</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">严控</span>
+                        <span class="stat-label">区域限制</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">索马里安全出行指南</h3>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 12px;">如果您必须前往，请严格遵守以下建议：</p>
+                <ul class="guide-list">
+                    <li>避开人群密集的露天市场</li>
+                    <li>远离政府大楼和军事设施</li>
+                    <li>使用经过认证的安保护送服务</li>
+                    <li>保持高度警惕，观察可疑包裹</li>
+                    <li>注册紧急联络信息</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">常见袭击类型</h3>
+                <ul class="guide-list">
+                    <li><strong>汽车炸弹：</strong> 袭击车辆高速冲向目标后引爆。</li>
+                    <li><strong>路边炸弹：</strong> 埋设在路边，针对车辆底盘。</li>
+                    <li><strong>人体炸弹：</strong> 袭击者混入人群或护送队伍中引爆。</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>全球安全观察</h4>
+                <p style="font-size: 0.9rem; color: #b0bec5;">致力于提供客观、及时的全球热点地区安全资讯与风险评估。</p>
+            </div>
+            <div class="footer-col">
+                <h4>相关主题</h4>
+                <ul>
+                    <li><a href="#">阿富汗安全</a></li>
+                    <li><a href="#">中东局势</a></li>
+                    <li><a href="#">反恐情报</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>免责声明</h4>
+                <ul>
+                    <li><a href="#">内容来源说明</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">联系方式</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 全球安全观察. All rights reserved. 本页面仅供信息参考，不构成安全建议。
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
